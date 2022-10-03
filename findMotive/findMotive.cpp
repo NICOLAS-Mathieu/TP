@@ -5,12 +5,12 @@ using namespace std;
 
 int main()
 {
-    cout << "Veuillez ecrire un motif : ";
-    string motif;
-    cin >> motif;
     cout << "Veuillez ecrire le chemin de fichier : ";
     string doc;
     cin >> doc;
+    cout << "Veuillez ecrire un motif : ";
+    string motif;
+    cin >> motif;
     ifstream fichier(doc, ios::in);
     int somme = 0;
     if (fichier)  
