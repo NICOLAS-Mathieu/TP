@@ -25,33 +25,17 @@ bool isPrime(int nb)
 
 void main()
 {
-	int nb1;
-	int nb2;
-	int nb3;
-	cout << "ecrivez trois nombre : ";
-	cin >> nb1 >> nb2 >> nb3;
-	if (isPrime(nb1))
+	int nb;
+	cout << "Entrez des nombres : " << endl;
+	while (cin >> nb)
 	{
-		cout << nb1 << ": le nombre est premier \n";
-	}
-	else
-	{
-		cout << nb1 << ": le nombre n'est pas premier \n";
-	}
-	if (isPrime(nb2))
-	{
-		cout << nb2 << ": le nombre est premier \n";
-	}
-	else
-	{
-		cout << nb2 << ": le nombre n'est pas premier \n";
-	}
-	if (isPrime(nb3))
-	{
-		cout << nb3 << ": le nombre est premier \n";
-	}
-	else
-	{
-		cout << nb3 << ": le nombre n'est pas premier \n";
+		if (isPrime(nb))
+		{
+			cout << nb << " : le nombre est premier \n";
+		}
+		else
+		{
+			cout << nb << " : le nombre n'est pas premier \n";
+		}
 	}
 }
