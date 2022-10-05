@@ -24,7 +24,7 @@ bool isPrime(int nb)
 }
 
 
-bool main()
+int main()
 {
 	int nb;
 	while (cin >> nb)
@@ -38,4 +38,5 @@ bool main()
 			cout << nb << "is a prime : False \n";
 		}
 	}
+	return 0;
 }
