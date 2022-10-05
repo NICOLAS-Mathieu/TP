@@ -19,11 +19,12 @@ int main(string path, string motif)
             string mot;
             while (text >> mot)
             {
+		bool estCompte = 0;
                 if (mot.size() >= motif.size())
                 {
                     for (int i = 0; i < mot.size(); i++)
                     {
-                        if (mot[i] == motif[0])
+                        if (mot[i] == motif[0] && !estCompte)
                         {
                             int j = 1;
                             for (int k = 1; k < motif.size(); k++)
@@ -36,6 +37,7 @@ int main(string path, string motif)
                             if (j == motif.size())
                             {
                                 somme += 1;
+				estCompte = 1;
                             }
                         }
                     }
