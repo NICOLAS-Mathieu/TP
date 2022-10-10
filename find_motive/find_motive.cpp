@@ -1,16 +1,15 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <sstream>
 using namespace std;
 
 
-int main(string path, string motif)
+int main(int argc, char* argv[])
 {
-
+    string path = argv[1];
+    string motif = argv[2];
+    ifstream text(path, ios::in);
     int somme = 0;
 
-    ifstream text(path, ios::in);
     if (text)
 		{
             text.clear();
