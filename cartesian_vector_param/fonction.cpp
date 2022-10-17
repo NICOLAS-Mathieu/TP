@@ -2,6 +2,21 @@
 #include "vector.hh"
 using namespace std;
 
+Vector::Vector(std::initializer_list<value> l)
+{
+	if (l.size() != NDIM)
+	{
+		runtime_error("Wrong size");
+	}
+
+	auto it = l.begin();
+
+	for (int i = 0; i < l.size(); i++)
+	{
+		this->x[i] = *(it + i);
+	}
+}
+
 Vector Vector::operator+(const Vector& rhs) const
 {
 	auto v = Vector{};
