@@ -1,12 +1,10 @@
 #include <ostream>
 #include "vector.hh"
-#include "config.h"
-#include <string.h>
 using namespace std;
 
-Vector& Vector::operator+(const Vector& rhs)
+Vector Vector::operator+(const Vector& rhs) const
 {
-	Vector v = Vector{};
+	auto v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
 		v.x[i] = this->x[i] + rhs.x[i];
@@ -16,37 +14,34 @@ Vector& Vector::operator+(const Vector& rhs)
 
 Vector &Vector::operator+=(const Vector& rhs) 
 {
-	Vector v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
-		v.x[i] = this->x[i] + rhs.x[i];
+		this->x[i] += rhs.x[i];
 	}
-	return v;
+	return *this;
 }
 
 Vector& Vector::operator-=(const Vector& rhs)
 {
-	Vector v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
-		v.x[i] = this->x[i] - rhs.x[i];
+		this->x[i] -= rhs.x[i];
 	}
-	return v;
+	return *this;
 }
 
 Vector& Vector::operator+=(const value k)
 {
-	Vector v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
-		v.x[i] = this->x[i] + k;
+		this->x[i] += k;
 	}
-	return v;
+	return *this;
 }
 
-Vector& Vector::operator*(const value k)
+Vector Vector::operator*(const value k)
 {
-	Vector v = Vector{};
+	auto v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
 		v.x[i] = this->x[i] * k;
@@ -56,20 +51,19 @@ Vector& Vector::operator*(const value k)
 
 Vector &Vector::operator*=(const value k)
 {
-	Vector v = Vector{};
 	for (int i = 0; i < NDIM; i++)
 	{
-		v.x[i] = this->x[i] * k;
+		this->x[i] *= k;
 	}
-	return v;
+	return *this;
 }
 
-value& Vector::operator*(const Vector& rhs)
+value Vector::operator*(const Vector& rhs)
 {
 	value S = 0;
 	for (int i = 0; i < NDIM; i++)
 	{
-		S = this->x[i] * rhs.x[i];
+		S += this->x[i] * rhs.x[i];
 	}
 	return S;
 }
@@ -79,13 +73,13 @@ value& Vector::operator[](const value i)
 	return this->x[i];
 }
 
-std::ostream& operator<<(std::ostream& out, Vector v)
+std::ostream& operator<<(std::ostream& o, Vector v)
 {
-	out << '{ ';
+	o << "{ ";
 	for (int i = 0; i < NDIM; i++)
 	{
-		out << v[i] << ' ';
+		o << v[i] << ' ';
 	}
-	out << '}';
-	return out;
+	o << " }";
+	return o;
 }

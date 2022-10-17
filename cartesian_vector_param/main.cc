@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "vector.hh"
-#include "fonction.cpp"
+
 #include <vector>
 #include <cstring> //strcmp
 
