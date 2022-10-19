@@ -2,7 +2,7 @@
 #include "vector.hh"
 using namespace std;
 
-Vector::Vector(std::initializer_list<value> l)
+Vector::Vector(initializer_list<value> l)
 {
 	if (l.size() != NDIM)
 	{

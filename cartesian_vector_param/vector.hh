@@ -17,7 +17,7 @@ public:
 // Add suitable constructors
     Vector();
     Vector(float u, float v);
-    Vector(initializer_list<int> l);
+    Vector(initializer_list<value> l);
 
     // possibly more
 
