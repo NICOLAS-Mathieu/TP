@@ -1,4 +1,3 @@
-#include <ostream>
 #include "vector.hh"
 using namespace std;
 
@@ -8,16 +7,21 @@ Vector::Vector(initializer_list<value> l)
 	{
 		runtime_error("Wrong size");
 	}
-
-	auto it = l.begin();
-
-	for (int i = 0; i < l.size(); i++)
+	for (int i = 0; i < NDIM; i++)
 	{
-		this->x[i] = *(it + i);
+		this->x[i] = data(l)[i];
 	}
 }
 
-Vector Vector::operator+(const Vector& rhs) const
+Vector::Vector()
+{
+	for (int i = 0; i < NDIM; i++)
+	{
+		this->x[i] = value(0);
+	}
+}
+
+Vector Vector::operator+(const Vector& rhs)
 {
 	auto v = Vector{};
 	for (int i = 0; i < NDIM; i++)
@@ -54,7 +58,7 @@ Vector& Vector::operator+=(const value k)
 	return *this;
 }
 
-Vector Vector::operator*(const value k)
+Vector& Vector::operator*(const value k)
 {
 	auto v = Vector{};
 	for (int i = 0; i < NDIM; i++)
@@ -83,7 +87,12 @@ value Vector::operator*(const Vector& rhs)
 	return S;
 }
 
-value& Vector::operator[](const value i)
+value Vector::operator[](const int i) const
+{
+	return this->x[i];
+}
+
+value& Vector::operator[](const int i)
 {
 	return this->x[i];
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ostream>
-#include <initializer_list>
+#include "initializer_list"
 #include "config.h"
 using namespace std;
 
@@ -22,15 +22,16 @@ public:
     // possibly more
 
 // Public Member functions here
-    Vector operator+(const Vector& rhs) const;
+    Vector operator+(const Vector& rhs);
     Vector& operator+=(const Vector& rhs);
     Vector& operator-=(const Vector& rhs);
     Vector& operator+=(const value k);
-    Vector operator*(const value k);
+    Vector& operator*(const value k);
     Vector& operator*=(const value k);
     value operator*(const Vector& rhs);
 
-    value& operator[](const value i);
+    value operator[](const int i) const;
+    value& operator[](const int i);
     // More to go
 
 private:
@@ -40,4 +41,4 @@ private:
 };
 
 // Nonmember function operators go here
-    std::ostream& operator<<(std::ostream& out, Vector v);
+    ostream& operator<<(ostream& out, Vector v);
